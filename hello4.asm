@@ -20,9 +20,9 @@ hello_function:
 	stp	X8, X9, [SP, #-16]!	; push output string to stack
 	mov	X2, XZR			; initialize strlen X2 with 0
 loop:
-	cmp	X2, #16        		; test if X2 > 16...
-	b.cs	end_loop       		; ...if yes, end loop
-	add     X2, X2, #1     		; increment X2
+	cmp	X2, #16        	; test if X2 > 16...
+	b.cs	end_loop    ; ...if yes, end loop
+	add     X2, X2, #1  ; increment X2
 	mov	X0, #1			; arg[0] = 1 = STDOUT
 	mov	X1, SP			; arg[1] point X1 to string
 ;	mov	X2, #16			; arg[2] = NOTE: strlen now set by loop
@@ -30,6 +30,6 @@ loop:
 	svc	#0xBEEF			; call kernel to output string
 	b	loop
 end_loop:
-	ret				; return from hello_function
+	ret					; return from hello_function
 
 ;helloworld:	.ascii "\nHello M1-World!"
